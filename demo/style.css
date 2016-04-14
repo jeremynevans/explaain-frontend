@@ -1,0 +1,88 @@
+body {
+  padding: 50px 20px;
+  background: #ddd;
+  font-family: Lato;
+  color: #333;
+}
+
+.cards {
+  margin: 0 auto;
+    width: 370px;
+}
+
+.card {
+  position: relative;
+  transform: scale(1,1);
+  margin: 20px;
+  border-radius: 15px;
+  overflow: hidden;
+  opacity: 1;
+  background: white;
+  -webkit-transition: opacity 0.5s, -webkit-transform 0.5s; /* Safari */
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.card.closed {
+  transform: scale(0,0);
+  opacity: 0;
+}
+
+.header-image {
+  height: 150px;
+  background: rgba(0,0,0,0.3);
+}
+
+.header-image img {
+  position: relative;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.header-image h3 {
+  position: relative;
+  margin-top: -35px;
+  margin-left: 20px;
+  text-transform: uppercase;
+  color: white;
+}
+
+.body-content {
+  padding: 0 20px;
+  line-height: 1.9;
+}
+
+.body-content a {
+  padding: 0 3px;
+  background: #ebebeb;
+  border: 2px solid #ebebeb;
+  text-decoration: none;
+  color: #333;
+}
+
+.body-content a:hover {
+  color: white;
+  background: #ff6e73;
+  border: 2px solid #ff6e73;
+}
+
+
+
+/* Temporary classes for demonstration of clicking on a link, until jQuery/Angular is doing it properly */
+
+.cards:active .card.toClose {
+  transform: scale(0.95,0.95);
+  opacity: 0.4;
+}
+
+.cards:active .card.toOpen {
+  transform: scale(1,1);
+  opacity: 1;
+}
+
+.cards:active .card a.toHighight {
+  color: white;
+  background: #ff6e73;
+  border: 2px solid #ff6e73;
+}
