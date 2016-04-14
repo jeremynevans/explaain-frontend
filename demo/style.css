@@ -10,6 +10,11 @@ body {
     width: 370px;
 }
 
+.card, .card-spacer {
+  -webkit-transition: -webkit-transform 0.5s, height 0.5s, margin 0.5s, opacity 0.5s; /* Safari */
+  transition: transform 0.5s, height 0.5s, margin 0.5s, opacity 0.5s;
+}
+
 .card {
   position: relative;
   transform: scale(1,1);
@@ -18,12 +23,11 @@ body {
   overflow: hidden;
   opacity: 1;
   background: white;
-  -webkit-transition: opacity 0.5s, -webkit-transform 0.5s; /* Safari */
-  transition: opacity 0.5s, transform 0.5s;
 }
 
 .card.closed {
   transform: scale(0,0);
+  /*height: 0;*/
   opacity: 0;
 }
 
@@ -67,12 +71,18 @@ body {
   border: 2px solid #ff6e73;
 }
 
+.card-spacer {
+  height: 0;
+}
+
 
 
 /* Temporary classes for demonstration of clicking on a link, until jQuery/Angular is doing it properly */
 
-.cards:active .card.toClose {
+.cards:active .card.toFade {
+  z-index: -1;
   transform: scale(0.95,0.95);
+  margin-top: 15px;
   opacity: 0.4;
 }
 
@@ -85,4 +95,8 @@ body {
   color: white;
   background: #ff6e73;
   border: 2px solid #ff6e73;
+}
+
+.cards:active .card-spacer {
+  height: 5px;
 }
