@@ -1,5 +1,5 @@
 body {
-  padding: 50px 20px;
+  padding: 80px 20px;
   background: #ddd;
   font-family: Lato;
   color: #333;
@@ -10,25 +10,39 @@ body {
     width: 370px;
 }
 
-.card, .card-spacer {
+.card .card-visible, .card .card-spacer {
   -webkit-transition: -webkit-transform 0.5s, height 0.5s, margin 0.5s, opacity 0.5s; /* Safari */
   transition: transform 0.5s, height 0.5s, margin 0.5s, opacity 0.5s;
 }
 
-.card {
+.card .card-spacer {
   position: relative;
+  z-index: -100;
+  margin: 10px;
+}
+
+.card .card-visible {
+  position: absolute;
   transform: scale(1,1);
-  margin: 20px;
+  width: 330px;
+  margin: 0 10px;
   border-radius: 15px;
   overflow: hidden;
   opacity: 1;
   background: white;
 }
 
-.card.closed {
+.card.closed .card-visible {
   transform: scale(0,0);
   /*height: 0;*/
   opacity: 0;
+}
+
+.card.faded .card-visible {
+  /*z-index: -1;*/
+  transform: scale(0.95,0.95);
+  /*margin-top: 15px;*/
+  opacity: 0.4;
 }
 
 .header-image {
@@ -52,6 +66,11 @@ body {
   color: white;
 }
 
+h2 {
+  padding: 0 20px;
+  font-size: 20px;
+}
+
 .body-content {
   padding: 0 20px;
   line-height: 1.9;
@@ -73,30 +92,4 @@ body {
 
 .card-spacer {
   height: 0;
-}
-
-
-
-/* Temporary classes for demonstration of clicking on a link, until jQuery/Angular is doing it properly */
-
-.cards:active .card.toFade {
-  z-index: -1;
-  transform: scale(0.95,0.95);
-  margin-top: 15px;
-  opacity: 0.4;
-}
-
-.cards:active .card.toOpen {
-  transform: scale(1,1);
-  opacity: 1;
-}
-
-.cards:active .card a.toHighight {
-  color: white;
-  background: #ff6e73;
-  border: 2px solid #ff6e73;
-}
-
-.cards:active .card-spacer {
-  height: 5px;
 }
